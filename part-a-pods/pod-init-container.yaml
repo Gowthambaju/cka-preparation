@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-container-pod
+spec:
+  initContainers:
+    - name: init-container
+      image: busybox
+      command:
+        - sh
+        - -c
+        - "echo Init container completed; sleep 5"
+
+  containers:
+    - name: app-container
+      image: nginx
